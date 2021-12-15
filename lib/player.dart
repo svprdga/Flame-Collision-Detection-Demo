@@ -2,7 +2,6 @@ import 'package:flame/components.dart';
 import 'package:flame/geometry.dart';
 import 'package:flame_collision_detection/core_game.dart';
 import 'package:flutter/material.dart';
-import 'package:flame/components.dart';
 
 class Player extends PositionComponent with HasHitboxes, Collidable {
   // ****************************** CONSTANTS ****************************** //
@@ -25,7 +24,7 @@ class Player extends PositionComponent with HasHitboxes, Collidable {
 
   Player(this._game) {
     _rect = Rect.fromLTWH(0.0, 0.0, _sizeSide, _sizeSide);
-    _paint = Paint()..color = Colors.lightBlue;
+    _paint = Paint()..color = Color(0xAA03A9F4);
   }
 
   //***************************** PUBLIC METHODS *************************** //

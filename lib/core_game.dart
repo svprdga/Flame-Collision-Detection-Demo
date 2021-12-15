@@ -1,4 +1,5 @@
 import 'package:flame/game.dart';
+import 'package:flame_collision_detection/obstacle.dart';
 import 'package:flame_collision_detection/player.dart';
 import 'package:flame/input.dart';
 
@@ -15,6 +16,10 @@ class CoreGame extends FlameGame
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+
+    final obstacle = Obstacle();
+    await add(obstacle);
+    obstacle.position = canvasSize / 2.0 - obstacle.size / 2.0;
 
     _player = Player(this);
     await add(_player);
