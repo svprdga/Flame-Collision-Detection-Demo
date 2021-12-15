@@ -1,7 +1,7 @@
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:flame_collision_detection/obstacle.dart';
 import 'package:flame_collision_detection/player.dart';
-import 'package:flame/input.dart';
 
 class CoreGame extends FlameGame
     with HasCollidables, MouseMovementDetector, TapDetector {
@@ -16,6 +16,8 @@ class CoreGame extends FlameGame
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+
+    overlays.add('Info');
 
     final obstacle = Obstacle();
     await add(obstacle);
@@ -33,6 +35,11 @@ class CoreGame extends FlameGame
 
   @override
   void onMouseMove(PointerHoverInfo info) {
+    _target = info.eventPosition.game;
+  }
+
+  @override
+  void onTapDown(TapDownInfo info) {
     _target = info.eventPosition.game;
   }
 }

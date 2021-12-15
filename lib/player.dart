@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class Player extends PositionComponent with HasHitboxes, Collidable {
   // ****************************** CONSTANTS ****************************** //
 
-  static const double _sizeSide = 128.0;
+  static const double _sizeSide = 64.0;
   static const double _acceleration = 5.0;
 
   // ***************************** INJECTED VARS *************************** //
@@ -23,8 +23,8 @@ class Player extends PositionComponent with HasHitboxes, Collidable {
   // ***************************** CONSTRUCTORS **************************** //
 
   Player(this._game) {
-    _rect = Rect.fromLTWH(0.0, 0.0, _sizeSide, _sizeSide);
-    _paint = Paint()..color = Color(0xAA03A9F4);
+    _rect = const Rect.fromLTWH(0.0, 0.0, _sizeSide, _sizeSide);
+    _paint = Paint()..color = const Color(0xAA03A9F4);
   }
 
   //***************************** PUBLIC METHODS *************************** //

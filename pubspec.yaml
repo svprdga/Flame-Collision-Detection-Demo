@@ -1,5 +1,5 @@
 name: flame_collision_detection
-description: Example of how to detect collisions and respond in Flame engine.
+description: Example of how to detect and respond to collisions and in Flame engine.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -7,13 +7,14 @@ environment:
   sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
+  flame: 1.0.0
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  flame: 1.0.0
   flutter_test:
     sdk: flutter
+  lint: 1.7.2
 
 flutter:
   uses-material-design: true

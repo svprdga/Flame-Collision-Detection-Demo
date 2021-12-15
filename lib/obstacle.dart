@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class Obstacle extends PositionComponent with HasHitboxes, Collidable {
   // ****************************** CONSTANTS ****************************** //
 
-  static const double _sizeSide = 128.0;
+  static const double _sizeSide = 64.0;
 
   // ********************************* VARS ******************************** //
 
@@ -19,7 +19,7 @@ class Obstacle extends PositionComponent with HasHitboxes, Collidable {
   // ***************************** CONSTRUCTORS **************************** //
 
   Obstacle() {
-    _rect = Rect.fromLTWH(0.0, 0.0, _sizeSide, _sizeSide);
+    _rect = const Rect.fromLTWH(0.0, 0.0, _sizeSide, _sizeSide);
     _noCollisionPaint = Paint()..color = Colors.grey;
     _collisionPaint = Paint()..color = Colors.white;
   }
