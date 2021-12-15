@@ -16,7 +16,7 @@ class CoreGame extends FlameGame
   Future<void> onLoad() async {
     await super.onLoad();
 
-    _player = Player();
+    _player = Player(this);
     await add(_player);
   }
 

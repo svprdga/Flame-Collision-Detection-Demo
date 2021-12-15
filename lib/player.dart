@@ -1,12 +1,18 @@
 import 'package:flame/components.dart';
 import 'package:flame/geometry.dart';
+import 'package:flame_collision_detection/core_game.dart';
 import 'package:flutter/material.dart';
+import 'package:flame/components.dart';
 
 class Player extends PositionComponent with HasHitboxes, Collidable {
   // ****************************** CONSTANTS ****************************** //
 
   static const double _sizeSide = 128.0;
   static const double _acceleration = 5.0;
+
+  // ***************************** INJECTED VARS *************************** //
+
+  final CoreGame _game;
 
   // ********************************* VARS ******************************** //
 
@@ -17,7 +23,7 @@ class Player extends PositionComponent with HasHitboxes, Collidable {
 
   // ***************************** CONSTRUCTORS **************************** //
 
-  Player() {
+  Player(this._game) {
     _rect = Rect.fromLTWH(0.0, 0.0, _sizeSide, _sizeSide);
     _paint = Paint()..color = Colors.lightBlue;
   }
@@ -35,6 +41,12 @@ class Player extends PositionComponent with HasHitboxes, Collidable {
   void update(double delta) {
     super.update(delta);
     position += _movementVector * delta;
+
+    // Never let the player go outside the screen
+    if (position.x < 0.0) position.x = 0.0;
+    if (_right() > _game.canvasSize.x) position.x = _game.canvasSize.x - size.x;
+    if (position.y < 0.0) position.y = 0.0;
+    if (_bot() > _game.canvasSize.y) position.y = _game.canvasSize.y - size.y;
   }
 
   @override
@@ -48,4 +60,20 @@ class Player extends PositionComponent with HasHitboxes, Collidable {
             Vector2(position.x + size.x / 2.0, position.y + size.y / 2.0)) *
         _acceleration;
   }
+
+  @override
+  void onCollision(Set<Vector2> points, Collidable other) {
+    if (other is ScreenCollidable) {
+      // debugPrint('Collision with the screen');
+    }
+  }
+
+  @override
+  void onCollisionEnd(Collidable other) {
+    if (other is ScreenCollidable) {}
+  }
+
+  double _right() => position.x + size.x;
+
+  double _bot() => position.y + size.y;
 }
