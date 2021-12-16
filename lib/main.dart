@@ -20,7 +20,10 @@ void main() {
             child: Center(
               child: Text(
                 _getInstructions(),
-                style: const TextStyle(fontSize: 20.0),
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                ),
               ),
             ),
           );
@@ -31,9 +34,13 @@ void main() {
 }
 
 String _getInstructions() {
-  if (Platform.isAndroid || Platform.isIOS) {
-    return 'Tap on the screen to move the square.';
-  } else {
+  try {
+    if (Platform.isAndroid || Platform.isIOS) {
+      return 'Tap on the screen to move the square.';
+    } else {
+      return 'Move the mouse to move the square';
+    }
+  } catch (_) {
     return 'Move the mouse to move the square';
   }
 }
