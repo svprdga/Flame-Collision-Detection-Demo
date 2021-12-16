@@ -46,7 +46,6 @@ class Player extends PositionComponent with HasHitboxes, Collidable {
   void update(double delta) {
     _oldPosition = position.clone();
     super.update(delta);
-    // position += _movementVector * delta;
     applyMovement(delta);
 
     // Never let the player go outside the screen

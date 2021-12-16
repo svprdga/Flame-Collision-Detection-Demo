@@ -1,16 +1,5 @@
-# flame_collision_detection
+# Flame Collision Detection
 
-Example of how to detect collisions and respond in Flame engine.
+This is a sample project showing how to handle collisions in [Flame Engine](https://flame-engine.org/).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I am not an expert in collisions in a 2D environment, so I guess that there are better solutions. If you think that you can enhance the detection algorithm please contribute a PR!
